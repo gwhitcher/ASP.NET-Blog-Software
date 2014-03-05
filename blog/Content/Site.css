@@ -1,0 +1,53 @@
+﻿body {
+    padding: 0px;
+    margin: 0px;
+}
+
+#container {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+/* HEADER */
+
+header h1 {
+    padding: 0px;
+    margin: 0px;
+}
+
+header h2 {
+    padding: 0px;
+    margin: 0px;
+}
+
+/* NAV */
+
+nav ul {
+    padding: 0px;
+    margin: 0px;
+    list-style-type: none;
+}
+
+nav li {
+    float: left;
+    padding: 5px 15px 5px 15px;
+}
+
+/* SECTION */
+
+section {
+    clear: both;
+}
+
+/* FOOTER */
+
+#login ul {
+    padding: 0px;
+    margin: 0px;
+    list-style-type: none;
+}
+
+#login li {
+    float: left;
+    padding: 0px 15px 0px 15px;
+}
