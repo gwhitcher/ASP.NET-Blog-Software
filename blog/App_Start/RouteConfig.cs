@@ -18,6 +18,16 @@ namespace blog
                 url: "{controller}/{action}",
                 defaults: new { controller = "Page", action = "Index", id = UrlParameter.Optional }
             );
+            routes.MapRoute(
+                name: "Blog SEO title",
+                url: "post/{id}/{Slug}",
+                defaults: new { controller = "Blog", action = "Details", id = UrlParameter.Optional, Slug = UrlParameter.Optional }
+            );
+            routes.MapRoute(
+                name: "Blog",
+                url: "{controller}/{action}/{id}",
+                 defaults: new { controller = "Blog", action = "Index", id = UrlParameter.Optional }
+            );
         }
     }
 }

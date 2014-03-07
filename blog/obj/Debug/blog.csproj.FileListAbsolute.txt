@@ -107,3 +107,4 @@ C:\Users\WHITCHER\Desktop\asp_blog\blog\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\WHITCHER\Desktop\asp_blog\blog\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\WHITCHER\Desktop\asp_blog\blog\obj\Debug\blog.dll
 C:\Users\WHITCHER\Desktop\asp_blog\blog\obj\Debug\blog.pdb
+C:\Users\WHITCHER\Desktop\asp_blog\blog\obj\Debug\blog.csprojResolveAssemblyReference.cache

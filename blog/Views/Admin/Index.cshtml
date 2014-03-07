@@ -1,0 +1,10 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<ul>
+    <li><a href="@Request.Url.GetLeftPart(UriPartial.Authority)/Blog/Create">Add Post</a></li>
+    <li><a href="@Request.Url.GetLeftPart(UriPartial.Authority)/Blog/Edit">Edit Post</a></li>
+    <li><a href="@Request.Url.GetLeftPart(UriPartial.Authority)/Blog/Delete">Delete Post</a></li>
+</ul>

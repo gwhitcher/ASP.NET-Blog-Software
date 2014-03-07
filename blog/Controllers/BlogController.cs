@@ -21,7 +21,7 @@ namespace blog.Controllers
         }
 
         // GET: /Blog/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int? id, string Slug)
         {
             if (id == null)
             {

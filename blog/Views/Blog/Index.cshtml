@@ -6,15 +6,9 @@
 
 <h2>Blog</h2>
 
-@foreach (var item in Model) {
-        <h2><a href="@HttpContext.Current.Request.Url/@Html.DisplayFor(modelItem => item.Slug)">@Html.DisplayFor(modelItem => item.Title)</a></h2>            
+@foreach (var item in Model.Reverse())
+{
+        <h2><a href="@Request.Url.GetLeftPart(UriPartial.Authority)/post/@Html.DisplayFor(modelItem => item.ID)/@Html.DisplayFor(modelItem => item.Slug)">@Html.DisplayFor(modelItem => item.Title)</a></h2>            
             @Html.DisplayFor(modelItem => item.Date)
             <p>@Html.DisplayFor(modelItem => item.Body)</p>
-
-    <p>
-        @Html.ActionLink("Create New", "Create")
-        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-    </p>
 }

@@ -51,3 +51,26 @@ section {
     float: left;
     padding: 0px 15px 0px 15px;
 }
+
+/* CONTACT */
+
+div.row
+{
+    clear:left;
+    margin:6px;   
+}
+label
+{
+    float:left;
+    width:200px;
+}
+textarea
+{
+    width:200px;
+    height:100px;   
+}
+div.buttons
+{
+    margin-left:150px;
+    margin-top:16px;   
+}
