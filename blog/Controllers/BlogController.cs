@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MvcBlog.Models;
+using PagedList;
 
 namespace blog.Controllers
 {
@@ -15,9 +16,45 @@ namespace blog.Controllers
         private BlogDBContext db = new BlogDBContext();
 
         // GET: /Blog/
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, int? page, string currentFilter, string searchString, string category, string categoryFilter)
         {
-            return View(db.Blog.ToList());
+            if (searchString != null || category != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+                category = currentFilter;
+            }
+            ViewBag.CurrentFilter = searchString;
+            ViewBag.categoryFilter = category;
+
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "id_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            var blog = from s in db.Blog
+                       select s;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                blog = blog.Where(s => s.Title.ToUpper().Contains(searchString.ToUpper()));
+            }
+            if (!String.IsNullOrEmpty(category))
+            {
+                blog = blog.Where(s => s.Category.ToUpper().Contains(category.ToUpper()));
+            }
+            switch (sortOrder)
+            {
+                default:
+                    blog = blog.OrderByDescending(s => s.ID);
+                    break;
+            }
+            int pageSize = 1;
+            int pageNumber = (page ?? 1);
+            return View(blog.ToPagedList(pageNumber, pageSize));
+            //CATEGORY DISTINCT CALL
+            var categoryquery = "SELECT DISTINCT category FROM Blog";
         }
 
         // GET: /Blog/Details/5
@@ -53,7 +90,7 @@ namespace blog.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="ID,Title,Slug,Date,Body")] Blog blog)
+        public ActionResult Create([Bind(Include = "ID,Title,Category,Slug,Date,Body")] Blog blog)
         {
             if (ModelState.IsValid)
             {
@@ -92,7 +129,7 @@ namespace blog.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="ID,Title,Slug,Date,Body")] Blog blog)
+        public ActionResult Edit([Bind(Include = "ID,Title,Category,Slug,Date,Body")] Blog blog)
         {
             if (ModelState.IsValid)
             {

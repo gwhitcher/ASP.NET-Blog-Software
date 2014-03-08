@@ -39,7 +39,16 @@ section {
     clear: both;
 }
 
+/* SIDEBAR */
+#sidebar {
+    width: 320px;
+    float: right;
+}
+
 /* FOOTER */
+footer {
+    clear: both;
+}
 
 #login ul {
     padding: 0px;

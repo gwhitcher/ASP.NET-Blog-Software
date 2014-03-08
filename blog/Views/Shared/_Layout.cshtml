@@ -9,6 +9,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    <script src="@Request.Url.GetLeftPart(UriPartial.Authority)/Scripts/tinymce/tinymce.min.js"></script>
 </head>
 <body>
 <div id="container">
@@ -28,7 +29,6 @@
     @RenderBody()
 </section>
        
-<hr />
 <footer>
         <p>&copy; @DateTime.Now.Year - My ASP.NET Blog <div id="login">@Html.Partial("_LoginPartial")</div></p>
 </footer>

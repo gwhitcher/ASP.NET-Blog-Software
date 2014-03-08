@@ -1,14 +1,41 @@
-﻿@model IEnumerable<MvcBlog.Models.Blog>
-
+﻿@model PagedList.IPagedList<MvcBlog.Models.Blog>
+@using PagedList.Mvc;
 @{
     ViewBag.Title = "Blog";
 }
-
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 <h2>Blog</h2>
-
+<div id="sidebar">
+    <h3>Search</h3>
+    @using (Html.BeginForm("Index", "Blog", FormMethod.Get))
+    {
+        <p>
+            Find by title: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+            <input type="submit" value="Search" />
+        </p>
+    }
+    @using (Html.BeginForm("Index", "Blog", FormMethod.Get))
+    {
+        <p>
+            Find by category: @Html.TextBox("category", ViewBag.CurrentFilter as string)
+            <input type="submit" value="Search" />
+        </p>
+    }
+    <h3>Categories</h3>
+    <ul>
+        @foreach (var categoryquery in Model)
+        {
+            <li><a href="@Request.Url.GetLeftPart(UriPartial.Authority)/Blog?category=@Html.DisplayFor(modelItem => categoryquery.Category)">@Html.DisplayFor(modelItem => categoryquery.Category)</a></li>
+        }
+    </ul>
+</div>
 @foreach (var item in Model.Reverse())
 {
-        <h2><a href="@Request.Url.GetLeftPart(UriPartial.Authority)/post/@Html.DisplayFor(modelItem => item.ID)/@Html.DisplayFor(modelItem => item.Slug)">@Html.DisplayFor(modelItem => item.Title)</a></h2>            
-            @Html.DisplayFor(modelItem => item.Date)
-            <p>@Html.DisplayFor(modelItem => item.Body)</p>
+    <h2><a href="@Request.Url.GetLeftPart(UriPartial.Authority)/post/@Html.DisplayFor(modelItem => item.ID)/@Html.DisplayFor(modelItem => item.Slug)">@Html.DisplayFor(modelItem => item.Title)</a></h2>
+    @Html.DisplayFor(modelItem => item.Date)
+    <p>@Html.DisplayFor(modelItem => item.Body)</p>
 }
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
