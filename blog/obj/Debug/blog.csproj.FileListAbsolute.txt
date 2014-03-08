@@ -167,3 +167,7 @@ C:\Users\WHITCHER\Desktop\gwhitcher-asp.net-blog-software-5eac04f77e19\blog\bin\
 C:\Users\WHITCHER\Desktop\gwhitcher-asp.net-blog-software-5eac04f77e19\blog\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\WHITCHER\Desktop\gwhitcher-asp.net-blog-software-5eac04f77e19\blog\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\WHITCHER\Desktop\gwhitcher-asp.net-blog-software-5eac04f77e19\blog\obj\Debug\blog.pdb
+C:\Users\WHITCHER\Desktop\asp_blog\blog\bin\PagedList.dll
+C:\Users\WHITCHER\Desktop\asp_blog\blog\bin\PagedList.Mvc.dll
+C:\Users\WHITCHER\Desktop\asp_blog\blog\bin\PagedList.xml
+C:\Users\WHITCHER\Desktop\asp_blog\blog\bin\PagedList.Mvc.xml

@@ -9,4 +9,9 @@
 <p>@Html.DisplayFor(model => model.Body)</p>
 <p>
     @Html.ActionLink("Back", "Index")
+    @if (User.Identity.IsAuthenticated)
+    {
+        <a href="@Request.Url.GetLeftPart(UriPartial.Authority)/Blog/Edit/@Html.DisplayFor(model => model.ID)">Edit Article</a>
+    }
 </p>
+

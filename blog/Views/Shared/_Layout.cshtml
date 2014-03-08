@@ -30,7 +30,11 @@
 </section>
        
 <footer>
-        <p>&copy; @DateTime.Now.Year - My ASP.NET Blog <div id="login">@Html.Partial("_LoginPartial")</div></p>
+        <p>&copy; @DateTime.Now.Year - My ASP.NET Blog <div id="login">@Html.Partial("_LoginPartial")</div>
+                @if (User.Identity.IsAuthenticated)
+                    {
+                <a href="@Request.Url.GetLeftPart(UriPartial.Authority)/Blog/Create">Post Article</a>
+                   }</p>
 </footer>
 </div>
 </body>
