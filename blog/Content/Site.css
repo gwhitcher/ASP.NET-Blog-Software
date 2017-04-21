@@ -83,3 +83,10 @@ div.buttons
     margin-left:150px;
     margin-top:16px;   
 }
+
+/* ADS */
+.advertisement 
+{
+    text-align: center;
+    margin: 10px;
+}

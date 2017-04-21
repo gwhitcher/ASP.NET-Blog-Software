@@ -13,6 +13,18 @@
 </head>
 <body>
 <div id="container">
+    <div class="advertisement">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Responsive -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-1862231357641748"
+             data-ad-slot="1935611714"
+             data-ad-format="auto"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
 <header>
     <h1>@Html.ActionLink("My ASP.NET Blog", "Index", "", null, new { @class = "header-title" })</h1>
     <h2>@Html.ActionLink("Tagline", "Index", "", null, new { @class = "header-description" })</h2>
@@ -28,7 +40,18 @@
 <section>
     @RenderBody()
 </section>
-       
+    <div class="advertisement">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Responsive -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-1862231357641748"
+             data-ad-slot="1935611714"
+             data-ad-format="auto"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
 <footer>
         <p>&copy; @DateTime.Now.Year - My ASP.NET Blog <div id="login">@Html.Partial("_LoginPartial")</div>
                 @if (User.Identity.IsAuthenticated)
